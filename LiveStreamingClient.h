@@ -28,8 +28,9 @@ public:
   void getMarketData();
 
 public:
-        static char products[105][8];
-        bool connect(const char * host, unsigned int port, int clientId = 0);
+  static char products[105][8];
+  int req_id_base;
+  bool connect(const char * host, unsigned int port, int clientId = 0);
 	void disconnect() const;
 	bool isConnected() const;
 

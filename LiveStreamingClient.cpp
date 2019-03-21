@@ -8,6 +8,7 @@
 
 const int PING_DEADLINE = 2; // seconds
 const int SLEEP_BETWEEN_PINGS = 30; // seconds
+int req_id_base = 1000;
 
 // 其实还有货币对：'USD.KRW',但是同时也有个"KRW.USD",所以只订阅其中一个交易对
 char LiveSteamingClient::products[105][8] = {"AUD.CAD", "AUD.CHF", "AUD.CNH", "AUD.HKD", "AUD.JPY", "AUD.NZD", "AUD.SGD", "AUD.USD", "AUD.ZAR",
@@ -85,10 +86,18 @@ template <typename T, size_t N, size_t M>
 void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   //  printf("Array size = %u", N);
   int i = 0;
-  for (i = 0; i <= N; ++i) {
+  int req;
+  for (i = 0; i < N; ++i) {
     printf("Trade pair = %s\n",products[i]);
     printf("First currency = %s\n", substr(products[i],0,3));
     printf("Second currency = %s\n", substr(products[i],4,3));
+    Contract contract;
+    contract.symbol = substr(products[i],0,3);
+    contract.currency = substr(products[i],4,3);
+    contract.exchange = "IDEALPRO";
+    contract.secType = "CASH";
+    req = req_id_base++;
+    printf("req_id = %u", req);
   }
 }
 
