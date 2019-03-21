@@ -8,9 +8,9 @@ TARGET=PosixSocketClientTest
 $(TARGET):
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o EClientSocketBase.o -c $(BASE_SRC_DIR)/EClientSocketBase.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o EPosixClientSocket.o -c $(BASE_SRC_DIR)/EPosixClientSocket.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o LiveSteamingClient.o -c LiveSteamingClient.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o LiveStreamingClient.o -c LiveStreamingClient.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o Main.o -c Main.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ EClientSocketBase.o EPosixClientSocket.o LiveSteamingClient.o Main.o
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ EClientSocketBase.o EPosixClientSocket.o LiveStreamingClient.o Main.o
 
 clean:
 	rm -f $(TARGET) *.o
