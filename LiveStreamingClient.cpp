@@ -1,4 +1,4 @@
-#include "livestreaming.h"
+#include "LiveStreamingClient.h"
 
 #include "EPosixClientSocket.h"
 #include "EPosixClientSocketPlatform.h"
@@ -19,7 +19,7 @@ LiveSteamingClient::~LiveSteamingClient()
 
 LiveSteamingClient::getMarketData()
 {
-  
+
 }
 
 bool LiveSteamingClient::connect(const char *host, unsigned int port, int clientId)

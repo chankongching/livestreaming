@@ -1,7 +1,7 @@
 include <unistd.h>
 
 // for application use
-#include "livestreaming.h"
+#include "LiveStreamingClient.h"
 
 const unsigned MAX_ATTEMPTS = 50;
 const unsigned SLEEP_TIME = 10;
