@@ -1,4 +1,10 @@
-include <unistd.h>
+#ifdef _WIN32
+# include <Windows.h>
+# define sleep( seconds) Sleep( seconds * 1000);
+#else
+# include <unistd.h>
+#endif
+
 // Time printer
 #include <iostream>
 #include <string>
