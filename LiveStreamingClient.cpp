@@ -99,8 +99,10 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     contract.currency = substr(products[i],4,3);
     contract.exchange = "IDEALPRO";
     contract.secType = "CASH";
+    printf("req_id_base = %u", req_id_base);
     req = req_id_base++;
     printf("req_id = %u", req);
+    m_pClient->reqMktData(req, contract,"165,221", true, false);
   }
 }
 
