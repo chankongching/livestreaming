@@ -7,6 +7,17 @@
 
 class EPosixClientSocket;
 
+enum State {
+	ST_CONNECT,
+	ST_PLACEORDER,
+	ST_PLACEORDER_ACK,
+	ST_CANCELORDER,
+	ST_CANCELORDER_ACK,
+	ST_PING,
+	ST_PING_ACK,
+	ST_IDLE
+};
+
 class LiveSteamingClient : public EWrapper
 {
 public:
