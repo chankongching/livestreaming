@@ -86,9 +86,23 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   //  printf("Array size = %u", N);
   int i = 0;
   for (i = 0; i <= N; ++i) {
-    printf(products[i]);
+    printf("Trade pair = %s\n",products[i]);
+    printf("First currency = %s\n", substr(products[i],0,3));
+    printf("Second currency = %s\n", substr(products[i],4,3));
   }
 }
+
+// Tools
+char* LiveSteamingClient::substr(char* arr, int begin, int len)
+{
+    char* res = new char[len];
+    for (int i = 0; i < len; i++)
+        res[i] = *(arr + begin + i);
+    res[len] = 0;
+    return res;
+}
+
+
 // Inheriting old program
 void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,
 	   int remaining, double avgFillPrice, int permId, int parentId,

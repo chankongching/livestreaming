@@ -38,6 +38,9 @@ private:
   void subscribe_all_contracts_lob(const T (&a)[N][M]);
 
 public:
+  char* substr(char* arr, int begin, int len);
+
+public:
 	// events
 	void tickPrice(TickerId tickerId, TickType field, double price, int canAutoExecute);
 	void tickSize(TickerId tickerId, TickType field, int size);
