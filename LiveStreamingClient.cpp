@@ -6,6 +6,21 @@
 const int PING_DEADLINE = 2; // seconds
 const int SLEEP_BETWEEN_PINGS = 30; // seconds
 
+// 其实还有货币对：'USD.KRW',但是同时也有个"KRW.USD",所以只订阅其中一个交易对
+char products [][7] = {"AUD.CAD", "AUD.CHF", "AUD.CNH", "AUD.HKD", "AUD.JPY", "AUD.NZD", "AUD.SGD", "AUD.USD", "AUD.ZAR",
+            "CAD.CHF", "CAD.CNH", "CAD.JPY", "CHF.CNH", "CHF.CZK", "CHF.DKK", "CHF.HUF", "CHF.JPY", "CHF.NOK",
+            "CHF.PLN", "CHF.SEK", "CHF.TRY", "CHF.ZAR", "CNH.HKD", "CNH.JPY", "DKK.JPY", "DKK.NOK", "DKK.SEK",
+            "EUR.AUD", "EUR.CAD", "EUR.CHF", "EUR.CNH", "EUR.CZK", "EUR.DKK", "EUR.GBP", "EUR.HKD", "EUR.HUF",
+            "EUR.ILS", "EUR.JPY", "EUR.MXN", "EUR.NOK", "EUR.NZD", "EUR.PLN", "EUR.RUB", "EUR.SEK", "EUR.SGD",
+            "EUR.TRY", "EUR.USD", "EUR.ZAR", "GBP.AUD", "GBP.CAD", "GBP.CHF", "GBP.CNH", "GBP.CZK", "GBP.DKK",
+            "GBP.HKD", "GBP.HUF", "GBP.JPY", "GBP.MXN", "GBP.NOK", "GBP.NZD", "GBP.PLN", "GBP.SEK", "GBP.SGD",
+            "GBP.TRY", "GBP.USD", "GBP.ZAR", "HKD.JPY", "KRW.AUD", "KRW.CAD", "KRW.CHF", "KRW.EUR", "KRW.GBP",
+            "KRW.HKD", "KRW.JPY", "KRW.USD", "MXN.JPY", "NOK.JPY", "NOK.SEK", "NZD.CAD", "NZD.CHF", "NZD.JPY",
+            "NZD.USD", "SEK.JPY", "SGD.CNH", "SGD.JPY", "TRY.JPY", "USD.CAD", "USD.CHF", "USD.CNH", "USD.CZK",
+            "USD.DKK", "USD.HKD", "USD.HUF", "USD.ILS", "USD.JPY", "USD.KRW", "USD.MXN", "USD.NOK", "USD.PLN",
+            "USD.RUB", "USD.SEK", "USD.SGD", "USD.TRY", "USD.ZAR", "ZAR.JPY"}
+
+
 // member funcs
 LiveSteamingClient::LiveSteamingClient()
 	: m_pClient(new EPosixClientSocket(this))
@@ -60,10 +75,13 @@ void LiveSteamingClient::error(const int id, const int errorCode, const IBString
 void LiveSteamingClient::getMarketData()
 {
   printf("Place Holder");
+  subscribe_all_contracts_lob();
 }
 
-
-
+void LiveSteamingClient::subscribe_all_contracts_lob(){
+  printf("Product size = ");
+  printf(products.size());
+}
 // Inheriting old program
 void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,
 	   int remaining, double avgFillPrice, int permId, int parentId,

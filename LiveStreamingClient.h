@@ -30,6 +30,9 @@ public:
 	void disconnect() const;
 	bool isConnected() const;
 
+private:
+  void subscribe_all_contracts_lob();
+
 public:
 	// events
 	void tickPrice(TickerId tickerId, TickType field, double price, int canAutoExecute);
