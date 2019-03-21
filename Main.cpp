@@ -57,7 +57,7 @@ int main(int argc, char** argv)
       std::cout << "-timestamp:" << t << "\n";
 			client.getMarketData();
       // temp setup to break the loop
-      return;
+      return 0;
 		}
 
 		if( attempt >= MAX_ATTEMPTS) {

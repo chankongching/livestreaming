@@ -7,6 +7,8 @@
 
 class EPosixClientSocket;
 
+
+
 enum State {
 	ST_CONNECT,
 	ST_PLACEORDER,
@@ -26,7 +28,8 @@ public:
   void getMarketData();
 
 public:
-	bool connect(const char * host, unsigned int port, int clientId = 0);
+        static char products[105][8];
+        bool connect(const char * host, unsigned int port, int clientId = 0);
 	void disconnect() const;
 	bool isConnected() const;
 
@@ -97,8 +100,7 @@ public:
 
 
 private:
-
-  std::auto_ptr<EPosixClientSocket> m_pClient;
+        std::auto_ptr<EPosixClientSocket> m_pClient;
 	State m_state;
 	time_t m_sleepDeadline;
 
