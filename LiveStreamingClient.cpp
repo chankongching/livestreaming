@@ -19,7 +19,7 @@ LiveSteamingClient::~LiveSteamingClient()
 
 void LiveSteamingClient::getMarketData()
 {
-  print("Place Holder");
+  printf("Place Holder");
 }
 
 bool LiveSteamingClient::connect(const char *host, unsigned int port, int clientId)
