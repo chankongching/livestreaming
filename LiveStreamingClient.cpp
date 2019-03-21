@@ -55,58 +55,58 @@ void LiveSteamingClient::getMarketData()
 }
 
 // Required declaration
-void PosixTestClient::tickPrice( TickerId tickerId, TickType field, double price, int canAutoExecute) {}
-void PosixTestClient::tickSize( TickerId tickerId, TickType field, int size) {}
-void PosixTestClient::tickOptionComputation( TickerId tickerId, TickType tickType, double impliedVol, double delta,
+void LiveSteamingClient::tickPrice( TickerId tickerId, TickType field, double price, int canAutoExecute) {}
+void LiveSteamingClient::tickSize( TickerId tickerId, TickType field, int size) {}
+void LiveSteamingClient::tickOptionComputation( TickerId tickerId, TickType tickType, double impliedVol, double delta,
 											 double optPrice, double pvDividend,
 											 double gamma, double vega, double theta, double undPrice) {}
-void PosixTestClient::tickGeneric(TickerId tickerId, TickType tickType, double value) {}
-void PosixTestClient::tickString(TickerId tickerId, TickType tickType, const IBString& value) {}
-void PosixTestClient::tickEFP(TickerId tickerId, TickType tickType, double basisPoints, const IBString& formattedBasisPoints,
+void LiveSteamingClient::tickGeneric(TickerId tickerId, TickType tickType, double value) {}
+void LiveSteamingClient::tickString(TickerId tickerId, TickType tickType, const IBString& value) {}
+void LiveSteamingClient::tickEFP(TickerId tickerId, TickType tickType, double basisPoints, const IBString& formattedBasisPoints,
 							   double totalDividends, int holdDays, const IBString& futureExpiry, double dividendImpact, double dividendsToExpiry) {}
-void PosixTestClient::openOrder( OrderId orderId, const Contract&, const Order&, const OrderState& ostate) {}
-void PosixTestClient::openOrderEnd() {}
-void PosixTestClient::winError( const IBString &str, int lastError) {}
-void PosixTestClient::connectionClosed() {}
-void PosixTestClient::updateAccountValue(const IBString& key, const IBString& val,
+void LiveSteamingClient::openOrder( OrderId orderId, const Contract&, const Order&, const OrderState& ostate) {}
+void LiveSteamingClient::openOrderEnd() {}
+void LiveSteamingClient::winError( const IBString &str, int lastError) {}
+void LiveSteamingClient::connectionClosed() {}
+void LiveSteamingClient::updateAccountValue(const IBString& key, const IBString& val,
 										  const IBString& currency, const IBString& accountName) {}
-void PosixTestClient::updatePortfolio(const Contract& contract, int position,
+void LiveSteamingClient::updatePortfolio(const Contract& contract, int position,
 		double marketPrice, double marketValue, double averageCost,
 		double unrealizedPNL, double realizedPNL, const IBString& accountName){}
-void PosixTestClient::updateAccountTime(const IBString& timeStamp) {}
-void PosixTestClient::accountDownloadEnd(const IBString& accountName) {}
-void PosixTestClient::contractDetails( int reqId, const ContractDetails& contractDetails) {}
-void PosixTestClient::bondContractDetails( int reqId, const ContractDetails& contractDetails) {}
-void PosixTestClient::contractDetailsEnd( int reqId) {}
-void PosixTestClient::execDetails( int reqId, const Contract& contract, const Execution& execution) {}
-void PosixTestClient::execDetailsEnd( int reqId) {}
+void LiveSteamingClient::updateAccountTime(const IBString& timeStamp) {}
+void LiveSteamingClient::accountDownloadEnd(const IBString& accountName) {}
+void LiveSteamingClient::contractDetails( int reqId, const ContractDetails& contractDetails) {}
+void LiveSteamingClient::bondContractDetails( int reqId, const ContractDetails& contractDetails) {}
+void LiveSteamingClient::contractDetailsEnd( int reqId) {}
+void LiveSteamingClient::execDetails( int reqId, const Contract& contract, const Execution& execution) {}
+void LiveSteamingClient::execDetailsEnd( int reqId) {}
 
-void PosixTestClient::updateMktDepth(TickerId id, int position, int operation, int side,
+void LiveSteamingClient::updateMktDepth(TickerId id, int position, int operation, int side,
 									  double price, int size) {}
-void PosixTestClient::updateMktDepthL2(TickerId id, int position, IBString marketMaker, int operation,
+void LiveSteamingClient::updateMktDepthL2(TickerId id, int position, IBString marketMaker, int operation,
 										int side, double price, int size) {}
-void PosixTestClient::updateNewsBulletin(int msgId, int msgType, const IBString& newsMessage, const IBString& originExch) {}
-void PosixTestClient::managedAccounts( const IBString& accountsList) {}
-void PosixTestClient::receiveFA(faDataType pFaDataType, const IBString& cxml) {}
-void PosixTestClient::historicalData(TickerId reqId, const IBString& date, double open, double high,
+void LiveSteamingClient::updateNewsBulletin(int msgId, int msgType, const IBString& newsMessage, const IBString& originExch) {}
+void LiveSteamingClient::managedAccounts( const IBString& accountsList) {}
+void LiveSteamingClient::receiveFA(faDataType pFaDataType, const IBString& cxml) {}
+void LiveSteamingClient::historicalData(TickerId reqId, const IBString& date, double open, double high,
 									  double low, double close, int volume, int barCount, double WAP, int hasGaps) {}
-void PosixTestClient::scannerParameters(const IBString &xml) {}
-void PosixTestClient::scannerData(int reqId, int rank, const ContractDetails &contractDetails,
+void LiveSteamingClient::scannerParameters(const IBString &xml) {}
+void LiveSteamingClient::scannerData(int reqId, int rank, const ContractDetails &contractDetails,
 	   const IBString &distance, const IBString &benchmark, const IBString &projection,
 	   const IBString &legsStr) {}
-void PosixTestClient::scannerDataEnd(int reqId) {}
-void PosixTestClient::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,
+void LiveSteamingClient::scannerDataEnd(int reqId) {}
+void LiveSteamingClient::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,
 								   long volume, double wap, int count) {}
-void PosixTestClient::fundamentalData(TickerId reqId, const IBString& data) {}
-void PosixTestClient::deltaNeutralValidation(int reqId, const UnderComp& underComp) {}
-void PosixTestClient::tickSnapshotEnd(int reqId) {}
-void PosixTestClient::marketDataType(TickerId reqId, int marketDataType) {}
-void PosixTestClient::commissionReport( const CommissionReport& commissionReport) {}
-void PosixTestClient::position( const IBString& account, const Contract& contract, int position, double avgCost) {}
-void PosixTestClient::positionEnd() {}
-void PosixTestClient::accountSummary( int reqId, const IBString& account, const IBString& tag, const IBString& value, const IBString& curency) {}
-void PosixTestClient::accountSummaryEnd( int reqId) {}
-void PosixTestClient::verifyMessageAPI( const IBString& apiData) {}
-void PosixTestClient::verifyCompleted( bool isSuccessful, const IBString& errorText) {}
-void PosixTestClient::displayGroupList( int reqId, const IBString& groups) {}
-void PosixTestClient::displayGroupUpdated( int reqId, const IBString& contractInfo) {}
+void LiveSteamingClient::fundamentalData(TickerId reqId, const IBString& data) {}
+void LiveSteamingClient::deltaNeutralValidation(int reqId, const UnderComp& underComp) {}
+void LiveSteamingClient::tickSnapshotEnd(int reqId) {}
+void LiveSteamingClient::marketDataType(TickerId reqId, int marketDataType) {}
+void LiveSteamingClient::commissionReport( const CommissionReport& commissionReport) {}
+void LiveSteamingClient::position( const IBString& account, const Contract& contract, int position, double avgCost) {}
+void LiveSteamingClient::positionEnd() {}
+void LiveSteamingClient::accountSummary( int reqId, const IBString& account, const IBString& tag, const IBString& value, const IBString& curency) {}
+void LiveSteamingClient::accountSummaryEnd( int reqId) {}
+void LiveSteamingClient::verifyMessageAPI( const IBString& apiData) {}
+void LiveSteamingClient::verifyCompleted( bool isSuccessful, const IBString& errorText) {}
+void LiveSteamingClient::displayGroupList( int reqId, const IBString& groups) {}
+void LiveSteamingClient::displayGroupUpdated( int reqId, const IBString& contractInfo) {}
