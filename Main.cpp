@@ -56,6 +56,7 @@ int main(int argc, char** argv)
       std::time_t t = std::time(0);
       std::cout << "-timestamp:" << t << "\n";
 			client.getMarketData();
+      // temp setup to break the loop
       return;
 		}
 
