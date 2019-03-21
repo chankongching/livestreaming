@@ -83,8 +83,11 @@ void LiveSteamingClient::getMarketData()
 
 template <typename T, size_t N, size_t M>
 void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
-  printf("Product size = ");
-  printf(N);
+  //  printf("Array size = %u", N);
+  int i = 0;
+  for (i = 0; i <= N; ++i) {
+    printf(products[i]);
+  }
 }
 // Inheriting old program
 void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,

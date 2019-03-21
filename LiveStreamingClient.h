@@ -34,7 +34,8 @@ public:
 	bool isConnected() const;
 
 private:
-  void subscribe_all_contracts_lob();
+  template <typename T, size_t N, size_t M>
+  void subscribe_all_contracts_lob(const T (&a)[N][M]);
 
 public:
 	// events
