@@ -18,5 +18,10 @@ public:
 	bool connect(const char * host, unsigned int port, int clientId = 0);
 	void disconnect() const;
 	bool isConnected() const;
+
+private:
+
+	std::auto_ptr<EPosixClientSocket> m_pClient;
+	time_t m_sleepDeadline;
 };
 #endif
