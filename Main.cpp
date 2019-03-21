@@ -1,4 +1,12 @@
 include <unistd.h>
+// Time printer
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <time.h>
+
+// Print timestamp
+#include <ctime>
 
 // for application use
 #include "LiveStreamingClient.h"
