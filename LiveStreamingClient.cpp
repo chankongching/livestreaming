@@ -78,12 +78,13 @@ void LiveSteamingClient::error(const int id, const int errorCode, const IBString
 void LiveSteamingClient::getMarketData()
 {
   printf("Place Holder");
-  subscribe_all_contracts_lob();
+  subscribe_all_contracts_lob(products);
 }
 
-void LiveSteamingClient::subscribe_all_contracts_lob(){
+template <typename T, size_t N, size_t M>
+void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   printf("Product size = ");
-  printf(products[0]);
+  printf(N);
 }
 // Inheriting old program
 void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,
