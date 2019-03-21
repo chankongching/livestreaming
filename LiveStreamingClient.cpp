@@ -3,6 +3,9 @@
 #include "EPosixClientSocket.h"
 #include "EPosixClientSocketPlatform.h"
 
+// Create Contract to check
+#include "Contract.h"
+
 // Use string array
 #include <string>
 
