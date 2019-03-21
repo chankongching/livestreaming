@@ -47,12 +47,29 @@ bool LiveSteamingClient::isConnected() const
 	return m_pClient->isConnected();
 }
 
+void LiveSteamingClient::error(const int id, const int errorCode, const IBString errorString)
+{
+//	printf( "Error id=%d, errorCode=%d, msg=%s\n", id, errorCode, errorString.c_str());
+
+	if( id == -1 && errorCode == 1100) // if "Connectivity between IB and TWS has been lost"
+		disconnect();
+}
+
 // methods
 
 void LiveSteamingClient::getMarketData()
 {
   printf("Place Holder");
 }
+
+
+
+// Inheriting old program
+void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,
+	   int remaining, double avgFillPrice, int permId, int parentId,
+	   double lastFillPrice, int clientId, const IBString& whyHeld){}
+void LiveSteamingClient::nextValidId( OrderId orderId) {}
+void LiveSteamingClient::currentTime( long time) {}
 
 // Required declaration
 void LiveSteamingClient::tickPrice( TickerId tickerId, TickType field, double price, int canAutoExecute) {}
