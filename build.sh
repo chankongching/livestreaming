@@ -1,3 +1,3 @@
 #!/bin/bash
-rm -f PosixSocketClientTest *.o
+rm -f LiveStreamingClientTest *.o
 make -f Makefile.linux
