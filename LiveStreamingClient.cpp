@@ -9,7 +9,9 @@ const int SLEEP_BETWEEN_PINGS = 30; // seconds
 // member funcs
 LiveSteamingClient::LiveSteamingClient()
 	: m_pClient(new EPosixClientSocket(this))
+	, m_state(ST_CONNECT)
 	, m_sleepDeadline(0)
+	, m_orderId(0)
 {
 }
 
