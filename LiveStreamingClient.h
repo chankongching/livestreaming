@@ -40,6 +40,7 @@ private:
 
 public:
   char* substr(char* arr, int begin, int len);
+  int create_req_code();
 
 public:
 	// events
@@ -105,10 +106,10 @@ public:
 
 
 private:
-        std::auto_ptr<EPosixClientSocket> m_pClient;
+  std::auto_ptr<EPosixClientSocket> m_pClient;
 	State m_state;
 	time_t m_sleepDeadline;
-
 	OrderId m_orderId;
+  int req_id_base;
 };
 #endif

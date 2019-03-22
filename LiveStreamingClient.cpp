@@ -34,6 +34,7 @@ LiveSteamingClient::LiveSteamingClient()
 	, m_state(ST_CONNECT)
 	, m_sleepDeadline(0)
 	, m_orderId(0)
+  , req_id_base(1000)
 {
 }
 
@@ -78,6 +79,10 @@ void LiveSteamingClient::error(const int id, const int errorCode, const IBString
 }
 
 // methods
+int LiveSteamingClient::create_req_code()
+{
+  return req_id_base++;
+}
 
 void LiveSteamingClient::getMarketData()
 {
@@ -87,8 +92,8 @@ void LiveSteamingClient::getMarketData()
 
 template <typename T, size_t N, size_t M>
 void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
-  //  printf("Array size = %u", N);
-  printf("subscribe_all_contracts_lob RAN. req_id_base = %u\n", req_id_base);
+  // //  printf("Array size = %u", N);
+  // printf("subscribe_all_contracts_lob RAN. req_id_base = %u\n", req_id_base);
   int i = 0;
   int req;
   for (i = 0; i < N; ++i) {
@@ -101,7 +106,7 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     contract.exchange = "IDEALPRO";
     contract.secType = "CASH";
     // printf("req_id_base = %u", req_id_base);
-    req = req_id_base++;
+    req = create_req_code();
     printf("req_id = %u\n", req);
     TickerId id = req;
     IBString genericTicks = "";
