@@ -94,6 +94,7 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   // //  printf("Array size = %u", N);
   // printf("subscribe_all_contracts_lob RAN. req_id_base = %u\n", req_id_base);
   int i = 0;
+  int j = 0;
   int req;
   map_item map_items[N];
   for (i = 0; i < N; ++i) {
@@ -113,7 +114,11 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     // "165,221";
     TagValueListSPtr tagvaluelistSPtr;
     // req_id_map[req] = products[i];
-    map_items[i] = {req, products[i]};
+    // map_items[i] = {req, products[i]};
+    map_items[i].req = req;
+      for (j = 0; j < M; ++j) {
+      map_items[i].tradepair[j] = products[i][j];
+    }
     m_pClient->reqMktData(id, contract, genericTicks, false, tagvaluelistSPtr);
   }
   print_map_items(map_items);
