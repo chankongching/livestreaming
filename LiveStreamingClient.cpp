@@ -115,8 +115,8 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     // req_id_map[req] = products[i];
     map_items[i] = {req, products[i]};
     m_pClient->reqMktData(id, contract, genericTicks, false, tagvaluelistSPtr);
-    print_map_items(map_items);
   }
+  print_map_items(map_items);
 }
 template <typename T, size_t N>
 void LiveSteamingClient::print_map_items(const T (&map_items)[N]){
