@@ -42,6 +42,8 @@ public:
   int create_req_code();
   template <typename T, size_t N>
   void print_map_items(const T (&map_items)[N]);
+  template <typename T, size_t N>
+  char *LiveSteamingClient::get_symbol_by_req_id(const T (&map_items)[N], int req_id);
 
 public:
 	// events
