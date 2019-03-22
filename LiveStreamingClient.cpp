@@ -130,17 +130,7 @@ void LiveSteamingClient::print_map_items(const T (&map_items)[N]){
     printf("Req id = %u\n", map_items[i].req);
     printf("tradepair = %s\n", map_items[i].tradepair);
   }
-  get_symbol_by_req_id(map_items, 1004);
-}
-
-template <typename T, size_t N>
-char *LiveSteamingClient::get_symbol_by_req_id(const T (&map_items)[N], int req_id) {
-  int i;
-  for (i = 0; i < N; ++i) {
-    if (map_items[i].req == req_id){
-       return map_items[i].tradepair);
-    }
-  }
+  // get_symbol_by_req_id(map_items, 1004);
 }
 
 // Tools
