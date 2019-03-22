@@ -125,6 +125,7 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
 }
 template <typename T, size_t N>
 void LiveSteamingClient::print_map_items(const T (&map_items)[N]){
+  int i;
   for (i = 0; i < N; ++i) {
     printf("Req id = %u\n", map_items[i].req);
     printf("tradepair = %s\n", map_items[i].tradepair);
