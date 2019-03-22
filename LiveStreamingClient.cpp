@@ -12,6 +12,8 @@
 const int PING_DEADLINE = 2; // seconds
 const int SLEEP_BETWEEN_PINGS = 30; // seconds
 
+// map_item map_items[];
+
 // 其实还有货币对：'USD.KRW',但是同时也有个"KRW.USD",所以只订阅其中一个交易对
 char LiveSteamingClient::products[105][8] = {"AUD.CAD", "AUD.CHF", "AUD.CNH", "AUD.HKD", "AUD.JPY", "AUD.NZD", "AUD.SGD", "AUD.USD", "AUD.ZAR",
             "CAD.CHF", "CAD.CNH", "CAD.JPY", "CHF.CNH", "CHF.CZK", "CHF.DKK", "CHF.HUF", "CHF.JPY", "CHF.NOK",
@@ -142,7 +144,19 @@ char* LiveSteamingClient::substr(char* arr, int begin, int len)
     res[len] = 0;
     return res;
 }
+//Return 0 if not same other wise 1
+int LiveSteamingClient::compare(char a[],char b[]){
+    for(int i=0;a[i]!='\0';i++){
+        if(a[i]!=b[i])
+            return 0;
+    }
+    return 1;
+}
 
+void LiveSteamingClient::tickPrice( TickerId tickerId, TickType field, double price, int canAutoExecute) {
+  m_pClient->tickPrice(tickerId, field, price, canAutoExecute);
+}
+void LiveSteamingClient::tickSize( TickerId tickerId, TickType field, int size) {}
 
 // Inheriting old program
 void LiveSteamingClient::orderStatus( OrderId orderId, const IBString &status, int filled,
@@ -152,8 +166,7 @@ void LiveSteamingClient::nextValidId( OrderId orderId) {}
 void LiveSteamingClient::currentTime( long time) {}
 
 // Required declaration
-void LiveSteamingClient::tickPrice( TickerId tickerId, TickType field, double price, int canAutoExecute) {}
-void LiveSteamingClient::tickSize( TickerId tickerId, TickType field, int size) {}
+
 void LiveSteamingClient::tickOptionComputation( TickerId tickerId, TickType tickType, double impliedVol, double delta,
 											 double optPrice, double pvDividend,
 											 double gamma, double vega, double theta, double undPrice) {}

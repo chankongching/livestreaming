@@ -39,6 +39,7 @@ private:
 
 public:
   char* substr(char* arr, int begin, int len);
+  int compare(char a[],char b[]);
   int create_req_code();
   template <typename T, size_t N>
   void print_map_items(const T (&map_items)[N]);

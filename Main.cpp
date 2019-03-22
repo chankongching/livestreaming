@@ -49,13 +49,13 @@ int main(int argc, char** argv)
 		LiveSteamingClient client;
 
 		client.connect( host, port, clientId);
-
+    client.getMarketData();
+    
 		while( client.isConnected()) {
       // Print time first
 			printf(currentDateTime().c_str());
       std::time_t t = std::time(0);
       std::cout << "-timestamp:" << t << "\n";
-			client.getMarketData();
       // temp setup to break the loop
       return 0;
 		}
