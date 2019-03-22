@@ -106,7 +106,7 @@ public:
 
 
 private:
-        std::auto_ptr<EClientSocketBase> m_pClient;
+        std::auto_ptr<EPosixClientSocket> m_pClient;
 	State m_state;
 	time_t m_sleepDeadline;
 
