@@ -88,6 +88,7 @@ void LiveSteamingClient::getMarketData()
 template <typename T, size_t N, size_t M>
 void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   //  printf("Array size = %u", N);
+  printf("subscribe_all_contracts_lob RAN. req_id_base = %u\n", req_id_base);
   int i = 0;
   int req;
   for (i = 0; i < N; ++i) {
@@ -99,9 +100,9 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     contract.currency = substr(products[i],4,3);
     contract.exchange = "IDEALPRO";
     contract.secType = "CASH";
-    printf("req_id_base = %u", req_id_base);
+    // printf("req_id_base = %u", req_id_base);
     req = req_id_base++;
-    printf("req_id = %u", req);
+    printf("req_id = %u\n", req);
     TickerId id = req;
     IBString genericTicks = "";
     // "165,221";
