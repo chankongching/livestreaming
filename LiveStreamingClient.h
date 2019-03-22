@@ -2,10 +2,11 @@
 #define livesteamingclient_h__INCLUDED
 
 #include "EWrapper.h"
+#include "EClient.h"
 
 #include <memory>
 
-class EPosixClientSocket;
+class EClientSocketBase;
 
 
 
