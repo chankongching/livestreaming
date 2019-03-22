@@ -32,6 +32,7 @@ char LiveSteamingClient::products[105][8] = {"AUD.CAD", "AUD.CHF", "AUD.CNH", "A
 // member funcs
 LiveSteamingClient::LiveSteamingClient()
 	: m_pClient(new EPosixClientSocket(this))
+  , m_pEWrapper(new EWrapper(this))
 	, m_state(ST_CONNECT)
 	, m_sleepDeadline(0)
 	, m_orderId(0)

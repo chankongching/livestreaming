@@ -111,6 +111,7 @@ public:
 
 private:
   std::auto_ptr<EPosixClientSocket> m_pClient;
+  std::auto_ptr<EWrapper> m_pEWrapper;
 	State m_state;
 	time_t m_sleepDeadline;
 	OrderId m_orderId;
