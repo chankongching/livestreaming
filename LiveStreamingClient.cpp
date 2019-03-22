@@ -117,7 +117,8 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   vector<int> v;
   for(map<int,char[8]>::iterator it = req_id_map.begin(); it != req_id_map.end(); ++it) {
     v.push_back(it->first);
-    cout << it->first << "\n";
+    printf("req_id = %u\n", it);
+    printf("value = %s\n", it->first);
   }
 }
 
