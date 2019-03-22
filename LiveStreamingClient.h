@@ -111,5 +111,6 @@ private:
 	time_t m_sleepDeadline;
 	OrderId m_orderId;
   int req_id_base;
+  std::map<int, std::char[8]> req_id_map;
 };
 #endif

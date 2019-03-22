@@ -111,7 +111,13 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     IBString genericTicks = "";
     // "165,221";
     TagValueListSPtr tagvaluelistSPtr;
+    req_id_map[req] = products[i];
     m_pClient->reqMktData(id, contract, genericTicks, false, tagvaluelistSPtr);
+  }
+  vector<int> v;
+  for(map<int,char[8]>::iterator it = req_id_map.begin(); it != req_id_map.end(); ++it) {
+    v.push_back(it->first);
+    cout << it->first << "\n";
   }
 }
 
