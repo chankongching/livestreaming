@@ -29,7 +29,6 @@ public:
 
 public:
   static char products[105][8];
-  int req_id_base;
   bool connect(const char * host, unsigned int port, int clientId = 0);
 	void disconnect() const;
 	bool isConnected() const;
@@ -41,6 +40,8 @@ private:
 public:
   char* substr(char* arr, int begin, int len);
   int create_req_code();
+  template <typename T, size_t N>
+  void print_map_items(const T (&map_items)[N]);
 
 public:
 	// events
@@ -111,6 +112,9 @@ private:
 	time_t m_sleepDeadline;
 	OrderId m_orderId;
   int req_id_base;
-  std::map<int, std::char[8]> req_id_map;
+  struct map_item {
+    int req;
+    string tradepair;
+  };
 };
 #endif

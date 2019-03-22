@@ -95,6 +95,7 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
   // printf("subscribe_all_contracts_lob RAN. req_id_base = %u\n", req_id_base);
   int i = 0;
   int req;
+  map_item map_items[N];
   for (i = 0; i < N; ++i) {
     printf("Trade pair = %s\n",products[i]);
     printf("First currency = %s\n", substr(products[i],0,3));
@@ -111,14 +112,17 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     IBString genericTicks = "";
     // "165,221";
     TagValueListSPtr tagvaluelistSPtr;
-    req_id_map[req] = products[i];
+    // req_id_map[req] = products[i];
+    map_items[i] = {req, products[i]};
     m_pClient->reqMktData(id, contract, genericTicks, false, tagvaluelistSPtr);
+    print_map_items(map_items);
   }
-  vector<int> v;
-  for(map<int,char[8]>::iterator it = req_id_map.begin(); it != req_id_map.end(); ++it) {
-    v.push_back(it->first);
-    printf("req_id = %u\n", it);
-    printf("value = %s\n", it->first);
+}
+template <typename T, size_t N>
+void LiveSteamingClient::print_map_items(const T (&map_items)[N]){
+  for (i = 0; i < N; ++i) {
+    printf("Req id = %u\n", map_items[i].req);
+    printf("tradepair = %s\n", map_items[i].tradepair);
   }
 }
 
