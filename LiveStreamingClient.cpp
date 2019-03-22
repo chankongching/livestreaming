@@ -1,7 +1,7 @@
 #include "LiveStreamingClient.h"
 
-#include "EClientSocketBase.h"
-// #include "EPosixClientSocketPlatform.h"
+#include "EPosixClientSocket.h"
+#include "EPosixClientSocketPlatform.h"
 
 // Create Contract to check
 #include "Contract.h"
@@ -30,7 +30,7 @@ char LiveSteamingClient::products[105][8] = {"AUD.CAD", "AUD.CHF", "AUD.CNH", "A
 
 // member funcs
 LiveSteamingClient::LiveSteamingClient()
-	: m_pClient(new EClientSocketBase(this))
+	: m_pClient(new EPosixClientSocket(this))
 	, m_state(ST_CONNECT)
 	, m_sleepDeadline(0)
 	, m_orderId(0)
