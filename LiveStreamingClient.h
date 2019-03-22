@@ -114,7 +114,7 @@ private:
   int req_id_base;
   struct map_item {
     int req;
-    string tradepair;
+    char tradepair [8];
   };
 };
 #endif
