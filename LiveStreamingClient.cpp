@@ -102,7 +102,7 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     printf("req_id_base = %u", req_id_base);
     req = req_id_base++;
     printf("req_id = %u", req);
-    m_pClient->reqMktData(req, contract,"165,221", true, '');
+    m_pClient->reqMktData(req, contract,"165,221", true, false);
   }
 }
 
