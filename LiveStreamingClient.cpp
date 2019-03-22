@@ -103,9 +103,10 @@ void LiveSteamingClient::subscribe_all_contracts_lob(const T (&a)[N][M]){
     req = req_id_base++;
     printf("req_id = %u", req);
     TickerId id = req;
-    IBString genericTicks = "165,221";
+    IBString genericTicks = "";
+    // "165,221";
     TagValueListSPtr tagvaluelistSPtr;
-    m_pClient->reqMktData(id, contract, genericTicks, true, TagValueListSPtr);
+    m_pClient->reqMktData(id, contract, genericTicks, false, tagvaluelistSPtr);
   }
 }
 
